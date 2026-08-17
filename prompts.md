@@ -30,3 +30,11 @@
 - Implementation approach: Generated a depth-7 Boolean mask on the selected device, counted occupied boxes directly from the PyTorch mask using non-overlapping tensor blocks, converted only the final log values to NumPy for `np.polyfit`, and plotted the fitted relationship.
 - Issues encountered: Full local plotting could not be run because this shell's `python3` environment lacks `matplotlib`; a PyTorch-only smoke test of generation, occupied-box counts, and the fitted slope passed.
 - Changes made: Created `src/fractal_dimension.py`, created `jobs/fractal_dimension_job.sh`, and documented this stage in `prompts.md`.
+
+## CPU Versus GPU Benchmark
+
+- Prompt: Implement the CPU versus GPU performance benchmark stage of the UQ COMP3710 Sierpiński carpet project. Create `src/benchmark.py` and `jobs/benchmark_job.sh`; do not modify the existing fractal, depth progression, or fractal-dimension programs; benchmark depths 4 through 8; time only the vectorised PyTorch fractal-generation computation; use one warm-up and three timed repetitions per depth; synchronize CUDA timing; verify every result against `8 ** depth`; print CPU/GPU timing tables and speedup when CUDA is available; plot execution time versus resolution; save `outputs/sierpinski_cpu_gpu_benchmark.png`; do not add other fractals, unrelated optimisations, classes, or extra scope.
+- Assistance summary: Added a CPU/GPU benchmark script and a Rangpur Slurm job script for timing the PyTorch Sierpiński carpet generation.
+- Implementation approach: Reused the same vectorised tensor algorithm on CPU and GPU, timed coordinate creation, Boolean mask creation, and recursive tensor operations only, synchronized CUDA before and after timed GPU runs, and kept plotting outside the measured section.
+- Issues encountered: Full local plotting could not be run because this shell's `python3` environment lacks `matplotlib`; a PyTorch-only CPU smoke test for depths 4 through 8 passed correctness checks.
+- Changes made: Created `src/benchmark.py`, created `jobs/benchmark_job.sh`, and documented this benchmark stage in `prompts.md`.
