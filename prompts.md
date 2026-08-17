@@ -38,3 +38,11 @@
 - Implementation approach: Reused the same vectorised tensor algorithm on CPU and GPU, timed coordinate creation, Boolean mask creation, and recursive tensor operations only, synchronized CUDA before and after timed GPU runs, and kept plotting outside the measured section.
 - Issues encountered: Full local plotting could not be run because this shell's `python3` environment lacks `matplotlib`; a PyTorch-only CPU smoke test for depths 4 through 8 passed correctness checks.
 - Changes made: Created `src/benchmark.py`, created `jobs/benchmark_job.sh`, and documented this benchmark stage in `prompts.md`.
+
+## Final README
+
+- Prompt: Finalize `README.md` for the UQ COMP3710 Sierpiński Carpet project, accurately describing the current implementation, mathematical construction, PyTorch base-3 algorithm, Rangpur GPU execution, generated results, self-similarity visualisation, box-counting dimension analysis, CPU/GPU benchmark results, project structure, running instructions, AI-assisted development, and key findings. Do not modify Python code, Slurm scripts, output images, or analysis results.
+- Assistance summary: Replaced the placeholder README with a concise final project description and included the existing generated figures and measured benchmark table.
+- Implementation approach: Documented only implemented project stages and used the user-provided benchmark results without inventing additional measurements.
+- Issues encountered: None.
+- Changes made: Updated `README.md` and documented this README-editing step in `prompts.md`.
