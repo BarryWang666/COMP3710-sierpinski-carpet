@@ -1,0 +1,14 @@
+- This is UQ COMP3710 Lab Demonstration 1 Part 3.
+- The project implements a Sierpiński carpet using PyTorch.
+- Work incrementally and do not complete the whole project in one step.
+- PyTorch tensor operations must be a major component of the fractal algorithm.
+- Use vectorised tensor operations instead of Python loops over individual pixels.
+- GPU computation will run on UQ Rangpur through Slurm.
+- Keep the code simple enough for me to explain during a live demonstration.
+- Before modifying code, briefly state the planned change.
+- After modifying code, explain the mathematical and PyTorch concepts involved.
+- Maintain prompts.md documenting AI-assisted development.
+- Record my prompts, a concise summary of assistance, issues encountered, and changes made.
+- Do not fabricate hidden AI reasoning.
+- Do not implement additional fractals.
+- Do not implement the fractal itself until I explicitly request it.
