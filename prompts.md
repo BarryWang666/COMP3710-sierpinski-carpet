@@ -22,3 +22,11 @@
 - Implementation approach: Reused the tensor-based ternary digit test in a small `generate_carpet(depth, device)` function, then plotted depths 1 to 6 in a 2 x 3 matplotlib grid.
 - Issues encountered: None during implementation.
 - Changes made: Created `src/depth_progression.py`, created `jobs/depth_progression_job.sh`, and documented this stage in `prompts.md`.
+
+## Box-Counting Fractal Dimension
+
+- Prompt: Implement the box-counting fractal-dimension analysis stage of the UQ COMP3710 Sierpiński carpet project. Create `src/fractal_dimension.py` and `jobs/fractal_dimension_job.sh`; do not modify the existing baseline or depth-progression programs; generate the depth-7 carpet with the same vectorised PyTorch base-3 membership algorithm; count occupied boxes for box sizes `1, 3, 9, 27, 81, 243, 729` using PyTorch reshape/view/permute operations; fit `log(N)` against `log(1 / epsilon)` using `np.polyfit`; plot measured points and fitted line; save `outputs/sierpinski_fractal_dimension.png`; do not implement benchmarking, alternative visualisations, other fractals, classes, or extra abstractions.
+- Assistance summary: Added a PyTorch box-counting analysis script and a Rangpur Slurm job script for estimating the Sierpiński carpet dimension.
+- Implementation approach: Generated a depth-7 Boolean mask on the selected device, counted occupied boxes directly from the PyTorch mask using non-overlapping tensor blocks, converted only the final log values to NumPy for `np.polyfit`, and plotted the fitted relationship.
+- Issues encountered: Full local plotting could not be run because this shell's `python3` environment lacks `matplotlib`; a PyTorch-only smoke test of generation, occupied-box counts, and the fitted slope passed.
+- Changes made: Created `src/fractal_dimension.py`, created `jobs/fractal_dimension_job.sh`, and documented this stage in `prompts.md`.
